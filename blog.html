@@ -96,6 +96,333 @@
 </nav>
 
 <div class="container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Understanding EVI, LAI, SCF, ET, T & E — Dr. Jayanta Das</title>
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+  :root {
+    --nav: #2c3e50;
+    --brand: #1abc9c;
+    --card-bg: #ffffff;
+    --muted: #666;
+    --max-width: 980px;
+  }
+  /* header + nav style to match your requested format */
+  header h1{margin:0;font-size:1.6rem;padding:20px;background:var(--nav);color:#fff;text-align:center}
+  nav{background:var(--nav);display:flex;flex-wrap:wrap;justify-content:center}
+  nav a{color:white;text-decoration:none;padding:12px 14px;display:inline-block;background:transparent}
+  nav a:hover{background:var(--brand);color:#000}
+  .container{max-width:var(--max-width);margin:22px auto;padding:0 16px}
+  /* article/card */
+  article.post{background:var(--card-bg);padding:20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:22px}
+  .meta{color:var(--muted);font-size:0.95rem;margin-bottom:12px}
+  h2.section{margin-top:0.6rem;color:#0b3b4a}
+  p{line-height:1.6;color:#222}
+  ul{padding-left:1.2rem}
+  /* figures */
+  .fig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+  figure{background:#fafafa;border-radius:6px;padding:8px;text-align:center;border:1px solid #eee}
+  figure img{max-width:100%;height:auto;border-radius:4px}
+  figcaption{font-size:0.9rem;color:var(--muted);margin-top:6px}
+  /* GEE code block */
+  .gee-block{margin-top:12px}
+  pre.code{background:#0d1117;color:#d6d6d6;padding:12px;border-radius:6px;overflow:auto;font-family:monospace;font-size:0.85rem;line-height:1.45}
+  .code-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+  .btn{background:var(--nav);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;border:none;cursor:pointer}
+  .btn.ghost{background:#f4f4f4;color:#222;border:1px solid #ddd}
+  /* responsive */
+  @media (max-width:900px){ .fig-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:600px){ .fig-grid{grid-template-columns:1fr} header h1{font-size:1.2rem} nav a{padding:10px} .container{margin:12px auto;padding:8px} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Understanding & Preparing EVI, LAI, SCF, ET, T and E from Satellite Data</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="teaching.html">Teaching</a>
+  <a href="projects.html">Projects</a>
+  <a href="achievements.html">Achievements</a>
+  <a href="publications.html">Publications</a>
+  <a href="team.html">Team</a>
+  <a href="blog.html">Blog</a>
+</nav>
+
+<main class="container">
+  <article class="post">
+    <p class="meta">Author: <strong>Dr. Jayanta Das</strong> — Assistant Professor, Department of Geography, Rampurhat College. Director, SDG Foundation.</p>
+
+    <section>
+      <h2 class="section">Overview</h2>
+      <p>
+        Monitoring vegetation health and water use is critical for managing agriculture, ecosystems, and groundwater. With open satellite imagery and cloud platforms like Google Earth Engine (GEE),
+        we can estimate key biophysical parameters at scale: <strong>EVI, LAI, SCF, ET, T</strong> (transpiration) and <strong>E</strong> (evaporation).
+        Below is a concise workflow, equations, interpretation, figure placeholders and the full GEE script to reproduce the analysis.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section">1. Enhanced Vegetation Index (EVI)</h2>
+      <p>
+        EVI measures canopy greenness while minimizing soil and atmospheric effects — better than NDVI in dense vegetation.
+      </p>
+      <p><strong>Formula (Landsat 8/9):</strong></p>
+      <pre class="code">EVI = 2.5 * ( (B5 - B4) / (B5 + 6*B4 - 7.5*B2 + 1) )</pre>
+      <p><strong>Interpretation:</strong></p>
+      <ul>
+        <li>0.5–0.8: dense, healthy vegetation</li>
+        <li>&lt;0.2: sparse or stressed vegetation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section">2. Leaf Area Index (LAI)</h2>
+      <p>
+        LAI is total leaf area per ground area (m²/m²) and indicates canopy density. From EVI (Liu et al., 2012):
+      </p>
+      <pre class="code">LAI = 3.618 * EVI - 0.118</pre>
+      <p>
+        Bound LAI (e.g., set negatives to 0, cap to ~6). Interpretation:
+        <strong>&gt;3</strong> dense canopy; <strong>&lt;1</strong> sparse vegetation.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section">3. Surface Cover Fraction (SCF)</h2>
+      <p>
+        SCF is the proportion of ground covered by vegetation. Use the empirical formula:
+      </p>
+      <pre class="code">SCF = 1 - exp(-alpha * LAI)  /* alpha ≈ 0.463 */</pre>
+      <p>SCF close to 1 → full cover; close to 0 → bare.</p>
+    </section>
+
+    <section>
+      <h2 class="section">4. Evapotranspiration (ET)</h2>
+      <p>
+        ET is total water loss from soil + vegetation (E + T). ET can be estimated from vegetation indices empirically or via model datasets (MOD16, SSEBop). In simple proxy workflows ET can be scaled from EVI or derived using meteorological inputs.
+      </p>
+      <p><strong>Interpretation:</strong> High ET → active growth and water use; Low ET → dry or non-vegetated areas.</p>
+    </section>
+
+    <section>
+      <h2 class="section">5. Transpiration (T) &amp; 6. Evaporation (E)</h2>
+      <p>
+        Partition ET into T and E using SCF:
+      </p>
+      <pre class="code">T = ET * SCF
+E = ET * (1 - SCF)</pre>
+      <p>
+        T indicates plant water use (important for irrigation planning). E represents soil/water surface loss.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section">Figures (replace placeholders)</h2>
+      <p class="meta">Add six figures (EVI, LAI, SCF, ET, T, E) — replace the <code>src</code> with your actual image files.</p>
+
+      <div class="fig-grid">
+        <figure>
+          <img src="images/figure1.png" alt="Figure 1 — EVI map">
+          <figcaption>Figure 1. EVI median composite</figcaption>
+        </figure>
+        <figure>
+          <img src="images/figure2.png" alt="Figure 2 — LAI map">
+          <figcaption>Figure 2. LAI median composite</figcaption>
+        </figure>
+        <figure>
+          <img src="images/figure3.png" alt="Figure 3 — SCF map">
+          <figcaption>Figure 3. SCF median composite</figcaption>
+        </figure>
+        <figure>
+          <img src="images/figure4.png" alt="Figure 4 — ET map">
+          <figcaption>Figure 4. ET median composite</figcaption>
+        </figure>
+        <figure>
+          <img src="images/figure5.png" alt="Figure 5 — T (Transpiration)">
+          <figcaption>Figure 5. Transpiration (T)</figcaption>
+        </figure>
+        <figure>
+          <img src="images/figure6.png" alt="Figure 6 — E (Evaporation)">
+          <figcaption>Figure 6. Evaporation (E)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section">Workflow in Google Earth Engine (short)</h2>
+      <ol>
+        <li>Load Landsat 8/9 collection for time period and ROI.</li>
+        <li>Mask clouds, compute median composites or multi-temporal stats.</li>
+        <li>Compute EVI, derive LAI, compute SCF.</li>
+        <li>Estimate ET (proxy or model), partition to T and E using SCF.</li>
+        <li>Export GeoTIFFs for each layer.</li>
+      </ol>
+      <p class="meta">Below is the full GEE script (copyable).</p>
+
+      <div class="gee-block">
+        <div class="code-actions">
+          <button id="copyCode" class="btn">Copy GEE Script</button>
+          <a class="btn ghost" href="#exports" title="Jump to exports">Jump to Exports</a>
+        </div>
+
+        <details open>
+          <summary style="cursor:pointer;padding:8px 0;color:#0b3b4a;font-weight:600">Full GEE Script (Landsat 8 TOA → EVI, LAI, SCF, ET, T, E)</summary>
+          <pre id="geeCode" class="code">
+// Define ROI
+Map.centerObject(roi, 8);
+
+// Define time period
+var startDate = '2015-01-01';
+var endDate = '2024-12-31';
+
+// Load Landsat 8 TOA (Collection 2)
+var landsat = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
+  .filterDate(startDate, endDate)
+  .filterBounds(roi)
+  .filter(ee.Filter.lt('CLOUD_COVER', 10));
+
+// Function to calculate indices
+var addIndices = function(image) {
+  var nir = image.select('B5');
+  var red = image.select('B4');
+  var blue = image.select('B2');
+
+  // Compute EVI
+  var evi = image.expression(
+    '2.5 * ((NIR - RED) / (NIR + 6 * RED - 7.5 * BLUE + 1))',
+    {'NIR': nir, 'RED': red, 'BLUE': blue}
+  ).rename('EVI');
+
+  // Mask outliers
+  evi = evi.updateMask(evi.gt(-1).and(evi.lt(1)));
+
+  // EVI → LAI (Liu et al., 2012)
+  var lai = evi.expression('3.618 * EVI - 0.118', {'EVI': evi}).rename('LAI');
+  lai = lai.where(lai.lt(0), 0).where(lai.gt(6), 6);
+
+  // Surface Cover Fraction (SCF) after Šimůnek et al. (2009)
+  var alpha_i = 0.463;
+  var scf = lai.expression('1 - exp(-alpha * LAI)', {
+    'alpha': alpha_i, 'LAI': lai
+  }).rename('SCF');
+
+  // ET proxy (example, scale EVI)
+  var et = evi.multiply(5).rename('ET');
+  et = et.where(et.lt(0), 0);
+
+  // Partition ET
+  var t = et.multiply(scf).rename('T');
+  var e = et.multiply(ee.Image(1).subtract(scf)).rename('E');
+
+  return image.addBands([evi, lai, scf, et, t, e]);
+};
+
+// Apply function
+var processed = landsat.map(addIndices);
+print('Processed Collection:', processed.limit(3));
+
+// Median composites
+var evi_median = processed.select('EVI').median().clip(roi);
+var lai_median = processed.select('LAI').median().clip(roi);
+var scf_median = processed.select('SCF').median().clip(roi);
+var et_median = processed.select('ET').median().clip(roi);
+var t_median = processed.select('T').median().clip(roi);
+var e_median = processed.select('E').median().clip(roi);
+
+// Visualization settings
+var visEVI = {min: 0, max: 1, palette: ['white','green']};
+var visLAI = {min: 0, max: 6, palette: ['yellow','green','darkgreen']};
+var visSCF = {min: 0, max: 1, palette: ['white','blue']};
+var visET = {min: 0, max: 5, palette: ['white','orange','red']};
+
+// Add layers to Map (if using Code Editor)
+Map.addLayer(evi_median, visEVI, 'EVI Median');
+Map.addLayer(lai_median, visLAI, 'LAI Median');
+Map.addLayer(scf_median, visSCF, 'SCF Median');
+Map.addLayer(et_median, visET, 'ET Median');
+Map.addLayer(t_median, visET, 'Transpiration (T)');
+Map.addLayer(e_median, visET, 'Evaporation (E)');
+
+// === EXPORTS ===
+var exports = [
+  {img: evi_median, name: 'EVI_Median_LS8'},
+  {img: lai_median, name: 'LAI_Median_LS8'},
+  {img: scf_median, name: 'SCF_Median_LS8'},
+  {img: et_median, name: 'ET_Median_LS8'},
+  {img: t_median, name: 'Transpiration_T_Median_LS8'},
+  {img: e_median, name: 'Evaporation_E_Median_LS8'}
+];
+
+exports.forEach(function(exp) {
+  Export.image.toDrive({
+    image: exp.img,
+    description: exp.name,
+    folder: 'GEE_Exports',
+    region: roi,
+    scale: 30,
+    crs: 'EPSG:4326',
+    fileFormat: 'GeoTIFF',
+    maxPixels: 1e13
+  });
+});
+          </pre>
+        </details>
+      </div>
+
+      <p id="exports" class="meta">Note: tune the ET proxy (here <code>ET = EVI * 5</code>) or replace with a proper model (MOD16, SSEBop or METEO-driven model) for rigorous water budgeting.</p>
+    </section>
+
+    <section>
+      <h2 class="section">Why these parameters matter</h2>
+      <table style="width:100%;border-collapse:collapse">
+        <tr><td style="padding:6px;border:1px solid #eee"><strong>Parameter</strong></td><td style="padding:6px;border:1px solid #eee"><strong>Key Insight</strong></td><td style="padding:6px;border:1px solid #eee"><strong>Application</strong></td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">EVI</td><td style="padding:6px;border:1px solid #eee">Vegetation greenness</td><td style="padding:6px;border:1px solid #eee">Crop monitoring</td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">LAI</td><td style="padding:6px;border:1px solid #eee">Leaf density</td><td style="padding:6px;border:1px solid #eee">Transpiration estimation</td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">SCF</td><td style="padding:6px;border:1px solid #eee">Vegetation cover fraction</td><td style="padding:6px;border:1px solid #eee">ET partitioning</td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">ET</td><td style="padding:6px;border:1px solid #eee">Total water loss</td><td style="padding:6px;border:1px solid #eee">Water budget & drought assessment</td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">T</td><td style="padding:6px;border:1px solid #eee">Plant water use</td><td style="padding:6px;border:1px solid #eee">Irrigation planning</td></tr>
+        <tr><td style="padding:6px;border:1px solid #eee">E</td><td style="padding:6px;border:1px solid #eee">Soil/surface evaporation</td><td style="padding:6px;border:1px solid #eee">Surface water loss mapping</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="section">Final thoughts</h2>
+      <p>
+        Combining EVI, LAI, SCF, ET, T and E provides a scalable, data-driven insight into vegetation–water interactions. For rigorous groundwater stress assessment, integrate these products with in-situ groundwater level data and meteorological forcing.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<script>
+  // Copy GEE code button
+  (function(){
+    var btn = document.getElementById('copyCode');
+    var codeEl = document.getElementById('geeCode');
+    btn && btn.addEventListener('click', function(){
+      var text = codeEl ? codeEl.innerText : '';
+      navigator.clipboard.writeText(text).then(function(){
+        btn.innerText = 'Copied ✓';
+        setTimeout(()=> btn.innerText = 'Copy GEE Script', 1800);
+      }, function(err){
+        alert('Copy failed. You can manually select and copy the code.');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
+
     <!-- Featured Blog Post -->
     <article>
     <h2>Detecting Warming Trends and Climate Regime Shifts</h2>
