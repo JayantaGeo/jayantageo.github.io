@@ -1,166 +1,1228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>News & Updates - Dr. Jayanta Das</title>
-    <meta name="description" content="Official website of Dr. Jayanta Das, Assistant Professor of Geography at Rampurhat College. Research expertise: Remote Sensing, GIS, Climate Change, Natural Hazards, Environmental Studies, and Sustainability.">
-<meta name="keywords" content="Dr. Jayanta Das, Rampurhat College, Geography Professor, Remote Sensing, GIS, Climate Change, Natural Hazards, Sustainability, Publications, Research, India">
-<meta name="author" content="Dr. Jayanta Das">
-<meta name="robots" content="index, follow">
+
+    <meta name="description"
+          content="Latest news, academic activities, research projects, consultancy projects, awards, invited lectures, editorial activities and professional updates of Dr. Jayanta Das, Assistant Professor of Geography at Rampurhat College.">
+
+    <meta name="keywords"
+          content="Dr. Jayanta Das, News, Updates, Scientific Editor Elsevier, Consultancy Projects, Research Projects, Geography, Remote Sensing, GIS, Climate Change, Rampurhat College">
+
+    <meta name="author" content="Dr. Jayanta Das">
+    <meta name="robots" content="index, follow">
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: #f4f7fb;
             color: #333;
         }
+
+        /* ================= HEADER ================= */
+
         header {
-            background: #004080;
+            background: linear-gradient(135deg, #004080, #0066a1);
             color: white;
-            padding: 20px 0;
+            padding: 25px 15px 20px;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
+
         header h1 {
-            margin: 0;
-            font-size: 1.8em;
+            margin: 0 0 12px;
+            font-size: 2rem;
+            font-weight: 700;
         }
+
         nav {
             text-align: center;
-            margin: 10px 0;
+            margin-top: 10px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
-            padding: 8px 15px;
+            padding: 8px 13px;
             display: inline-block;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            transition: 0.3s;
         }
+
         nav a:hover {
-            background: #003060;
+            background: rgba(255,255,255,0.16);
         }
+
+
+        /* ================= MAIN ================= */
+
         main {
-            max-width: 900px;
-            margin: auto;
+            max-width: 1050px;
+            margin: 30px auto;
             background: white;
-            padding: 20px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
+
         h2 {
             color: #004080;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
+            border-bottom: 3px solid #004080;
+            padding-bottom: 8px;
+            margin-top: 0;
         }
+
+        h3 {
+            color: #004080;
+            margin-top: 35px;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            background: #eef6ff;
+            border-left: 5px solid #004080;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            border-radius: 5px;
+        }
+
+
+        /* ================= NEWS ITEMS ================= */
+
         .news-item {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #ccc;
+            margin-bottom: 22px;
+            padding: 18px 20px;
+            border: 1px solid #e1e7ee;
+            border-left: 5px solid #004080;
+            border-radius: 7px;
+            background: #ffffff;
+            transition: 0.25s;
         }
+
+        .news-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
         .date {
-            font-size: 0.9em;
+            font-size: 0.88rem;
+            font-weight: bold;
             color: #777;
+            margin: 0 0 5px;
         }
+
+        .news-title {
+            color: #004080;
+            font-size: 1.08rem;
+            font-weight: bold;
+            margin: 4px 0 8px;
+        }
+
+        .news-item p {
+            margin: 6px 0;
+        }
+
+
+        /* ================= SPECIAL BOXES ================= */
+
+        .award {
+            background: #f5fff5;
+            border-left-color: #2e8b57;
+        }
+
+        .editorial {
+            background: #f5f9ff;
+            border-left-color: #0066a1;
+        }
+
+        .consultancy {
+            background: #fffaf0;
+            border-left-color: #d18b00;
+        }
+
+        .project {
+            background: #f7f5ff;
+            border-left-color: #6842a5;
+        }
+
+        .publication {
+            background: #f7f5ff;
+            border-left-color: #6842a5;
+        }
+
+        .highlight {
+            background: #fff8e6;
+            border-left-color: #e6a700;
+        }
+
+
+        /* ================= LABEL ================= */
+
+        .section-label {
+            display: inline-block;
+            background: #004080;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.78rem;
+            margin-bottom: 6px;
+        }
+
+        .award .section-label {
+            background: #2e8b57;
+        }
+
+        .consultancy .section-label {
+            background: #b27600;
+        }
+
+        .editorial .section-label {
+            background: #0066a1;
+        }
+
+        .project .section-label {
+            background: #6842a5;
+        }
+
+
+        /* ================= LINKS ================= */
+
+        .news-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #0074c8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .news-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ================= PROJECT GRID ================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid #e0e5ec;
+            border-radius: 8px;
+            border-left: 4px solid #6842a5;
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .project-number {
+            display: inline-block;
+            background: #6842a5;
+            color: white;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .project-info {
+            font-size: 0.92rem;
+            color: #666;
+        }
+
+        .project-info strong {
+            color: #444;
+        }
+
+
+        /* ================= EDITORIAL ================= */
+
+        .editorial-list {
+            margin: 10px 0 0 20px;
+            padding: 0;
+        }
+
+        .editorial-list li {
+            margin-bottom: 12px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        #footer {
+            margin-top: 30px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                font-size: 0.88rem;
+            }
+
+            main {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            .news-item {
+                padding: 15px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
+
     <h1>News & Updates</h1>
+
     <nav>
-    <a href="index.html">Home</a>
-    <a href="news.html">News</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="projects.html">Projects</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="publications.html">Publications</a>
-    <a href="team.html">Team</a>
-    <a href="social-activities.html">Social Activities</a>
-    <a href="blog.html">Blog</a>
+
+        <a href="index.html">Home</a>
+
+        <a href="news.html">News</a>
+
+        <a href="teaching.html">Teaching</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="achievements.html">Achievements</a>
+
+        <a href="publications.html">Publications</a>
+
+        <a href="team.html">Team</a>
+
+        <a href="social-activities.html">Social Activities</a>
+
+        <a href="blog.html">Blog</a>
+
     </nav>
+
 </header>
 
+
+
+<!-- ================= MAIN ================= -->
+
 <main>
-    <section>
-        <h2>Latest Announcements</h2>
-<div class="news-item">
-    <p class="date">August 4, 2025</p>
-       <p><strong> Application Open for ANRF-JRF Position</strong></p>
-         <br>
-        PI: Dr. Jayanta Das
-         <br>
-        <em>Project Title:</em> Climate-Water-Agriculture-Livelihood Nexus for Tribal Area Development in Jhargram and East Singhbhum Districts of West Bengal and Jharkhand: Steps towards Viksit Bharat 2047.  
+
+<section>
+
+    <h2>Latest Announcements & Updates</h2>
+
+
+    <div class="intro">
+
+        Welcome to the <strong>News & Updates</strong> page of
+        <strong>Dr. Jayanta Das</strong>, Assistant Professor of Geography at
+        Rampurhat College.
+
+        This page highlights recent academic activities, research projects,
+        consultancy assignments, editorial responsibilities, invited lectures,
+        conferences, awards and professional engagements.
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 PROFESSIONAL PROFILE -->
+    <!-- ===================================================== -->
+
+    <div class="news-item editorial">
+
+        <span class="section-label">Professional Role</span>
+
+        <p class="date">2026</p>
+
+        <p class="news-title">
+            🧑‍🔬 Scientific Editor, Elsevier
+        </p>
+
         <p>
-    <a href="PDFS/Applicatopn%20for%20ANRF-JRF.pdf" target="_blank">📄 Instruction and Form</a>
-    <br>
-    <a href="PDFS/Shortlisted%20Candidates%20for%20the%20post%20of%20JRF.pdf" target="_blank">📄 Shortlisted Candidates for the post of JRF</a>
-    <br>
-    <a href="PDFS/Results_of_Interview_ANRF_Project.pdf" target="_blank">📄 Results of Interview for the post of JRF</a>
-    <br>
-    <a href="https://forms.gle/JgATAzSNPYWP5dDh8" target="_blank" style="color: #007BFF; font-weight: bold;">✅ Apply Now</a>
-</p>
+            Dr. Jayanta Das is serving as a
+            <strong>Scientific Editor, Elsevier</strong>, contributing to
+            scholarly publishing and the evaluation of scientific research.
+        </p>
 
-</div>
-<div class="news-item">
-   <p class="last-date">September 5, 2025</p>
+        <p>
+            His professional responsibilities also include academic,
+            research and geospatial activities associated with his broader
+            research and institutional engagements.
+        </p>
 
-<p><strong>Call for Book Chapters</strong></p>
+    </div>
 
-<p>Springer Nature Edited Volume</p>
 
-<p><strong>Editors:</strong> Dr. Debarshi Ghosh, Dr. Jayanta Das, and Prof. Dr. Ranjan Roy</p>
-         <em>Book Title:</em> "Rivers of Humid Tropic in the Anthopocene - Fluvial Dynamics,  Human Interventions, Health and Possible Future"  
+
+    <!-- ===================================================== -->
+    <!-- 2026 AWARD -->
+    <!-- ===================================================== -->
+
+    <div class="news-item award">
+
+        <span class="section-label">Award</span>
+
+        <p class="date">February 2026</p>
+
+        <p class="news-title">
+            🏆 Received Best Paper Award – 2026
+        </p>
+
+        <p>
+            Received the <strong>Best Paper Award 2026</strong> for the paper
+            titled
+            <em>
+                “Transboundary Flood Resilience in North Bengal through
+                India-Bhutan Joint River Management Strategy”
+            </em>
+            at the IIG International Seminar organized by the Department of
+            Geography and Applied Geography, University of North Bengal,
+            in collaboration with the Institute of Indian Geographers (IIG).
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 INTERNATIONAL CONFERENCE -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">International Conference</span>
+
+        <p class="date">February 28 – March 2, 2026</p>
+
+        <p class="news-title">
+            🌏 Delivered Lead Lecture at International Conference
+        </p>
+
+        <p>
+            Delivered a lead lecture at the 3-day International Conference on
+            <em>
+                “Building Transboundary Flood Resilience in North Bengal
+                through India-Bhutan River Cooperation under Present and
+                Future Climate Variability”
+            </em>,
+            organized by Bangiyo Bhugol Mancha in collaboration with
+            Gangrampur College.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 CHAIRING -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">Conference</span>
+
+        <p class="date">February 28 – March 2, 2026</p>
+
+        <p class="news-title">
+            🎤 Chaired Technical Session at International Conference
+        </p>
+
+        <p>
+            Chaired a technical session at the 3-day International Conference
+            on <em>“Wetland, Society and Sustainability”</em>,
+            organized by Bangiyo Bhugol Mancha in collaboration with
+            Gangrampur College.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 INVITED LECTURE -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">Invited Lecture</span>
+
+        <p class="date">April 8, 2026</p>
+
+        <p class="news-title">
+            🛰️ Special Talk on Spectral Signature & Image Interpretation
+        </p>
+
+        <p>
+            Delivered a special talk on
+            <em>“Spectral Signature & Image Interpretation”</em>,
+            organized by the Department of Geography, Cooch Behar College.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 GEE TRAINING -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">Training & Capacity Building</span>
+
+        <p class="date">February 11 – April 22, 2026</p>
+
+        <p class="news-title">
+            🌐 Google Earth Engine Training Programme
+        </p>
+
+        <p>
+            Delivered lectures and hands-on training in the 2-month online
+            workshop cum hands-on training programme on
+            <em>
+                “Google Earth Engine for Geospatial Analysis: From Basics
+                to Advanced Applications”
+            </em>,
+            organized under the collaborative initiative of the Department
+            of Geography & Resource Management, Mizoram University and
+            Srushti-Drushti Geospatial (SDG) Foundation.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 ICAR -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">Invited Lecture</span>
+
+        <p class="date">March 22 – 23, 2026</p>
+
+        <p class="news-title">
+            🌱 Lecture at ICAR-Sponsored Winter School
+        </p>
+
+        <p>
+            Delivered a lecture in the ICAR-sponsored 21-Day Winter School on
+            <em>
+                “Integration of Artificial Intelligence and Geospatial Tools
+                for Advanced Soil and Water Resource Mapping”
+            </em>,
+            organized by Bihar Agricultural University, Sabour.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 GROUNDWATER -->
+    <!-- ===================================================== -->
+
+    <div class="news-item">
+
+        <span class="section-label">Invited Lecture</span>
+
+        <p class="date">February 23, 2026</p>
+
+        <p class="news-title">
+            💧 Lecture on Advanced Groundwater Stress Assessment
+        </p>
+
+        <p>
+            Delivered a lecture on
+            <em>“Advanced Techniques for Ground Water Stress”</em>
+            during the pre-conference online workshop of the International
+            Conference on <em>Wetland, Society and Sustainability</em>,
+            organized by Bangiya Bhugol Mancha in collaboration with
+            Gangrampur College.
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2026 PUBLICATIONS -->
+    <!-- ===================================================== -->
+
+    <div class="news-item publication">
+
+        <span class="section-label">Research Publications</span>
+
+        <p class="date">2026</p>
+
+        <p class="news-title">
+            📚 Recent Research Publications
+        </p>
+
+        <p>
+            Recent research contributions include studies on the
+            <strong>Jal Jeevan Mission and human health</strong>,
+            <strong>forest fire susceptibility mapping</strong>,
+            <strong>blue carbon under climate change</strong>, and
+            <strong>participatory GIS-based flood vulnerability mapping</strong>.
+        </p>
+
+        <a class="news-link" href="publications.html">
+            → View Publications
+        </a>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- EDITORIAL ACTIVITIES -->
+    <!-- ===================================================== -->
+
+    <h3>Editorial & Scientific Publishing Activities</h3>
+
+
+    <div class="news-item editorial">
+
+        <span class="section-label">Editorial Work</span>
+
+        <p class="news-title">
+            📝 Editorial Responsibilities
+        </p>
+
+        <p>
+            Dr. Jayanta Das has undertaken several editorial responsibilities
+            in international and national scholarly publications.
+        </p>
+
+        <ol class="editorial-list">
+
+            <li>
+                Lead Guest Editor for the special issue on
+                <em>
+                    “Integrating Geospatial Intelligence and Machine Learning
+                    for Smart Environmental Monitoring and Management”
+                </em>
+                in <em>Environmental Science and Pollution Research</em>,
+                Springer.
+            </li>
+
+            <li>
+                Editor, <em>Journal of Water</em>, Open Access Pub.
+            </li>
+
+            <li>
+                Lead Guest Editor for Volume 15, No. A Special Issue, 2024,
+                <em>Indian Journal of Spatial Science</em>.
+            </li>
+
+            <li>
+                Lead Guest Editor for the special issue on
+                <em>
+                    “Climate Change and Human Intervention on
+                    Hydro-Geomorphological Hazards in the Era of Sustainability”
+                </em>
+                in <em>Hill Geographer</em>.
+            </li>
+
+        </ol>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- CONSULTANCY / PROJECTS -->
+    <!-- ===================================================== -->
+
+    <h3>Consultancy & Research Projects</h3>
+
+
+    <div class="intro">
+
+        Dr. Jayanta Das has been involved as Principal Investigator,
+        Co-Principal Investigator and Host Scientist in a range of
+        research, consultancy and applied geospatial projects involving
+        watershed assessment, GIS mapping, biodiversity, water resources,
+        climate change, agriculture, livelihoods and disaster risk
+        management.
+
+    </div>
+
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <div class="project-number">1</div>
+
+            <div class="project-title">
+                Micro-Watershed Study, GIS Mapping, and Biodiversity Mapping
+                under the Jaldhara Project
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2026–2029<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong>
+                Parmarth Samaj Sevi Sansthan (PSSS)
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <div class="project-number">2</div>
+
+            <div class="project-title">
+                Changes in Indigenous Ecological Knowledge (IEK) and its
+                Impact on Livelihoods and Ecosystem Services in the Bengal
+                Dooars Region (BDR) towards ViksitBharat@2047
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2026–2027<br>
+
+                <strong>Role:</strong> Co-Principal Investigator (Co-PI)<br>
+
+                <strong>Agency:</strong> ICSSR, New Delhi
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-number">3</div>
+
+            <div class="project-title">
+                Village-Level Hydrogeological and Ecological Assessment
+                and GIS Mapping under AWS-Aligned Water Stewardship Framework
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2025–2026<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong>
+                Parmarth Samaj Sevi Sansthan (PSSS)
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="project-card">
+
+            <div class="project-number">4</div>
+
+            <div class="project-title">
+                Assessing the Impact of Jal Jeevan Mission on Reducing Water
+                Contamination and its Socio-Economic Implications with a
+                Special Focus on Women and Elderly Population: A Case Study
+                in Arsenic Affected Regions of Lower Gangetic Basin, West Bengal
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2024–2025<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong> ICSSR, New Delhi
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 5 -->
+
+        <div class="project-card">
+
+            <div class="project-number">5</div>
+
+            <div class="project-title">
+                Climate-Water-Agriculture-Livelihood Nexus for Tribal Area
+                Development in Jhargram and East Singhbhum Districts of
+                West Bengal and Jharkhand: Steps towards Viksit Bharat 2047
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2025–2028<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong> ANRF, New Delhi
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 6 -->
+
+        <div class="project-card">
+
+            <div class="project-number">6</div>
+
+            <div class="project-title">
+                Integrated Approaches for Flood Risk Assessment and
+                Management Strategies
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2023<br>
+
+                <strong>Role:</strong> Host Scientist<br>
+
+                <strong>Agency:</strong>
+                DST, MEA, FICCI, Government of India
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 7 -->
+
+        <div class="project-card">
+
+            <div class="project-number">7</div>
+
+            <div class="project-title">
+                Baseline Landscape Mapping for Assisted Natural
+                Regeneration (ANR)
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 6 Weeks<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong> Live Foundation
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT 8 -->
+
+        <div class="project-card">
+
+            <div class="project-number">8</div>
+
+            <div class="project-title">
+                River Health and Water Dependency Assessment –
+                Betwa River Basin
+            </div>
+
+            <div class="project-info">
+
+                <strong>Duration:</strong> 2026<br>
+
+                <strong>Role:</strong> Principal Investigator (PI)<br>
+
+                <strong>Agency:</strong>
+                Parmarth Samaj Sevi Sansthan (PSSS)
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- 2025 NEWS -->
+    <!-- ===================================================== -->
+
+    <h3>Recent 2025 Updates</h3>
+
+
+
+    <!-- ANRF JRF -->
+
+    <div class="news-item highlight">
+
+        <span class="section-label">Research Opportunity</span>
+
+        <p class="date">August 4, 2025</p>
+
+        <p class="news-title">
+            📢 Application Open for ANRF-JRF Position
+        </p>
+
+        <p>
+            Applications were invited for the position of
+            <strong>ANRF-JRF</strong> under the project:
+        </p>
+
+        <p>
+            <em>
+                Climate-Water-Agriculture-Livelihood Nexus for Tribal Area
+                Development in Jhargram and East Singhbhum Districts of
+                West Bengal and Jharkhand: Steps towards Viksit Bharat 2047.
+            </em>
+        </p>
+
+        <p>
+            <strong>Principal Investigator:</strong> Dr. Jayanta Das
+        </p>
+
+        <a class="news-link"
+           href="PDFS/Applicatopn%20for%20ANRF-JRF.pdf"
+           target="_blank">
+
+            📄 Instruction and Form
+
+        </a>
+
         <br>
-        <a href="PDFS/Springer_Edited_Book.pdf" target="_blank">📄 Brochure</a>
+
+        <a class="news-link"
+           href="PDFS/Shortlisted%20Candidates%20for%20the%20post%20of%20JRF.pdf"
+           target="_blank">
+
+            📄 Shortlisted Candidates
+
+        </a>
+
         <br>
-        <a href="hhttps://forms.gle/Z5RdhkbP55u3UNJ1A" target="_blank" style="color: #007BFF; font-weight: bold;">✅ Submit Now</a>
-    </p>
-</div>
-        <div class="news-item">
-            <p class="date">July 19, 2025</p>
-            <p>Delivered Keynote in International Conference on “Improving Early-Season Crop Type Mapping Using Machine Learning Algorithms with Combined SAR and Optical time series” Organized by Department of Civil Engineering and Basic Sciences & Humanities, <em>Gandhi Institute for Education and Technology,<em> Banaitangi.</p>
-        </div>
 
-         <div class="news-item">
-            <p class="date">May 19 to July 11, 2025</p>
-            <p>Successfully Completed ISRO sponsored NNRMS Faculty Development Program on “RS & GIS Technology and Applications with specialization in RS & GIS Applications in Agriculture & Soil Studies” Organized by <em>Indian Institute of Remote Sensing.</em></p>
-        </div>     
-                
-        <div class="news-item">
-            <p class="date">May 15, 2025</p>
-            <p>Delivered lecture in 2 days International Seminar on “Future Climate Scenario vs Flood Risk in the Uttar Dinajpur District of West Bengal, India: a MCDM approach for Viksit Bharat @ 2047” Organized by Department of Geography, <em>Vidyasagar College</em>.</p>
-        </div>
-                
-<div class="news-item">
-            <p class="date">April 11, 2025</p>
-            <p>Delivered Lecture in International Conference on Geospatial Innovation and Disaster Risk Reduction (DRR): Towards Viksit Bharat” Organized by <em>Tilka Manjhi Bhagalpur University<em>.</p>
-        </div>
-                
-<div class="news-item">
-            <p class="date">March 20, 2025</p>
-            <p>Launched field surveys for ICSSR-funded Jal Jeevan Mission project in West Bengal and Assam.</p>
-        </div>               
-        <div class="news-item">
-            <p class="date">January 10-11, 2025</p>
-            <p>Successfully conducted 7th Regional Science and Technology Congress- 2024-25, Region-3, Jointly Organized by Rampurhat College & Department of Science & Technology and Biotechnology, Government of West Bengal, January 10-11, 2025, as a Nodal officer, at Rampurhat College.</p>
-        </div>
+        <a class="news-link"
+           href="PDFS/Results_of_Interview_ANRF_Project.pdf"
+           target="_blank">
 
-    </section>
+            📄 Results of Interview
+
+        </a>
+
+    </div>
+
+
+
+    <!-- BOOK CHAPTER -->
+
+    <div class="news-item highlight">
+
+        <span class="section-label">Book Project</span>
+
+        <p class="date">September 5, 2025</p>
+
+        <p class="news-title">
+            📖 Call for Book Chapters – Springer Nature Edited Volume
+        </p>
+
+        <p>
+            Call for book chapters for the Springer Nature edited volume:
+        </p>
+
+        <p>
+            <strong>
+                “Rivers of Humid Tropic in the Anthropocene –
+                Fluvial Dynamics, Human Interventions, Health and
+                Possible Future”
+            </strong>
+        </p>
+
+        <p>
+            <strong>Editors:</strong>
+            Dr. Debarshi Ghosh, Dr. Jayanta Das and Prof. Dr. Ranjan Roy
+        </p>
+
+        <a class="news-link"
+           href="PDFS/Springer_Edited_Book.pdf"
+           target="_blank">
+
+            📄 View Brochure
+
+        </a>
+
+        <br>
+
+        <a class="news-link"
+           href="https://forms.gle/Z5RdhkbP55u3UNJ1A"
+           target="_blank">
+
+            ✅ Submit Chapter
+
+        </a>
+
+    </div>
+
+
+
+    <!-- KEYNOTE -->
+
+    <div class="news-item">
+
+        <span class="section-label">Keynote Lecture</span>
+
+        <p class="date">July 18–19, 2025</p>
+
+        <p class="news-title">
+            🎤 Delivered Keynote Lecture at International Conference
+        </p>
+
+        <p>
+            Delivered a keynote lecture on
+            <em>
+                “Improving Early-Season Crop Type Mapping Using Machine
+                Learning Algorithms with Combined SAR and Optical Time Series”
+            </em>
+            at the International Conference organized by the Department of
+            Civil Engineering and Basic Sciences & Humanities,
+            Gandhi Institute for Education and Technology, Banaitangi.
+        </p>
+
+    </div>
+
+
+
+    <!-- ISRO -->
+
+    <div class="news-item">
+
+        <span class="section-label">Faculty Development</span>
+
+        <p class="date">May 19 – July 11, 2025</p>
+
+        <p class="news-title">
+            🎓 Successfully Completed ISRO Sponsored NNRMS Faculty
+            Development Programme
+        </p>
+
+        <p>
+            Successfully completed the ISRO-sponsored NNRMS Faculty
+            Development Programme on
+            <em>
+                “RS & GIS Technology and Applications with Specialization
+                in RS & GIS Applications in Agriculture & Soil Studies”
+            </em>,
+            organized by the Indian Institute of Remote Sensing.
+        </p>
+
+    </div>
+
+
+
+    <!-- VIDYASAGAR -->
+
+    <div class="news-item">
+
+        <span class="section-label">Invited Lecture</span>
+
+        <p class="date">May 14–15, 2025</p>
+
+        <p class="news-title">
+            🌦️ Lecture on Future Climate Scenario and Flood Risk
+        </p>
+
+        <p>
+            Delivered a lecture on
+            <em>
+                “Future Climate Scenario vs Flood Risk in the Uttar Dinajpur
+                District of West Bengal, India: A MCDM Approach for
+                Viksit Bharat @ 2047”
+            </em>
+            at the International Seminar organized by the Department of
+            Geography, Vidyasagar College.
+        </p>
+
+    </div>
+
+
+
+    <!-- TMBU -->
+
+    <div class="news-item">
+
+        <span class="section-label">Invited Lecture</span>
+
+        <p class="date">April 11–12, 2025</p>
+
+        <p class="news-title">
+            🌍 Lecture on Geospatial Innovation and Disaster Risk Reduction
+        </p>
+
+        <p>
+            Delivered a lecture at the Multidisciplinary International Seminar
+            on
+            <em>
+                “Geospatial Innovation and Disaster Risk Reduction (DRR):
+                Towards Viksit Bharat”
+            </em>,
+            organized by Tilka Manjhi Bhagalpur University.
+        </p>
+
+    </div>
+
+
+
+    <!-- FIELD SURVEY -->
+
+    <div class="news-item">
+
+        <span class="section-label">Research Project</span>
+
+        <p class="date">March 20, 2025</p>
+
+        <p class="news-title">
+            💧 Field Surveys Launched for ICSSR-Funded Project
+        </p>
+
+        <p>
+            Field surveys were launched for the ICSSR-funded
+            <strong>Jal Jeevan Mission project</strong> in West Bengal
+            and Assam.
+        </p>
+
+    </div>
+
+
+
+    <!-- REGIONAL CONGRESS -->
+
+    <div class="news-item">
+
+        <span class="section-label">Academic Event</span>
+
+        <p class="date">January 10–11, 2025</p>
+
+        <p class="news-title">
+            🏛️ Conducted 7th Regional Science and Technology Congress
+        </p>
+
+        <p>
+            Successfully conducted the
+            <strong>
+                7th Regional Science and Technology Congress 2024–25,
+                Region-3
+            </strong>,
+            jointly organized by Rampurhat College and the Department of
+            Science & Technology and Biotechnology, Government of West Bengal,
+            at Rampurhat College, serving as Nodal Officer.
+        </p>
+
+    </div>
+
+
+</section>
+
 </main>
 
-<!-- Footer -->
+
+
+<!-- ================= FOOTER ================= -->
+
 <div id="footer"></div>
+
 <script>
+
     fetch('footer.html')
+
         .then(response => response.text())
+
         .then(data => {
+
             document.getElementById('footer').innerHTML = data;
+
+        })
+
+        .catch(error => {
+
+            console.error('Error loading footer:', error);
+
         });
+
 </script>
+
 
 </body>
 </html>
-
-
-
-
