@@ -1,2 +1,2 @@
 # jayanta.github.io
-Dr. Jayanta Das, Assistant Professor &amp; Dept. of Geography, Rampurhat College, holds a PhD from Univ. of North Bengal. An expert in climate change, hazards, RS &amp; GIS, he has 80+ papers, books with Springer/Elsevier, led ICSSR &amp; ANRF projects, and mentors globally under CV Raman Fellowship.
+Dr. Jayanta Das is an Assistant Professor of Geography at Rampurhat College, with a PhD from the University of North Bengal. He is Scientific Editor with Elsevier, Director of SDG Foundation, and PI of ICSSR and ANRF-funded projects. His research focuses on climate change, hazards, GIS, remote sensing, geospatial modelling, and sustainable development.
